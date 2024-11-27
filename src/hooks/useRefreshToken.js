@@ -6,13 +6,13 @@ const useRefreshToken = () => {
   const { setAuth } = useAuth();
 
   const refresh = async () => {
-    const response = await axios.post("/auth/CreateTokenByRefreshToken", {
+    const response = await axios.post("/auth/CreateTokenByRefreshToken", {}, {
       withCredentials: true,
     });
 
     const roleConstant = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role";
 
-    const decoded = jwtDecode(response.data?.data?.token);
+    const decoded = jwtDecode(response.data?.data?.accessToken);
 
     const roles = decoded?.[roleConstant] || [];
 

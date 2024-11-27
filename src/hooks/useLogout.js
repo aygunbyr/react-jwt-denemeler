@@ -7,7 +7,7 @@ const useLogout = () => {
   const logout = async () => {
     setAuth({});
     try {
-      const response = await axios.post("/auth/RevokeRefreshToken", {
+      const response = await axios.post("/auth/RevokeRefreshToken", {}, {
         withCredentials: true,
       });
     } catch (err) {
