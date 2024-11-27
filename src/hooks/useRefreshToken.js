@@ -17,15 +17,16 @@ const useRefreshToken = () => {
     const roles = decoded?.[roleConstant] || [];
 
     setAuth((prev) => {
-      console.log(JSON.stringify(prev));
-      console.log(response.data?.data?.token);
+      // console.log(JSON.stringify(prev));
+      console.log("token:");
+      console.log(response.data?.data?.accessToken);
       return {
         ...prev,
         roles,
-        accessToken: response.data?.data?.token,
+        accessToken: response.data?.data?.accessToken,
       };
     });
-    return response.data?.data?.token;
+    return response.data?.data?.accessToken;
   };
   return refresh;
 };
